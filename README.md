@@ -91,6 +91,62 @@ Run rake -T with bundler
     bundle exec rake -T
     bundle exec rake spec
 
+## How to test on other OS?
+
+Install the puppet facts gem
+
+    gem install rspec-puppet-facts
+
+Attention: this one needs a metadata.json file!
+
+    {
+      "name": "tuxmea/vilnius-devopspro",
+      "version": "1.0.0",
+      "author": "devopspro vilnius workshop",
+      "summary": "code for puppet testing workshop",
+      "license": "Apache-2.0",
+      "source": "https://github.com/tuxmea/devopspro-vilnius",
+      "project_page": "https://github.com/tuxmea/devopspro-vilnius",
+      "issues_url": "https://github.com/tuxmea/devopspro-vilnius/issues",
+      "tags": ["worksop", "devopspro", "vilnius", "puppet testing"],
+      "operatingsystem_support": [
+        {
+          "operatingsystem":"RedHat",
+          "operatingsystemrelease":[ "6.x", "7.x" ]
+        },
+        {
+          "operatingsystem":"CentOS",
+          "operatingsystemrelease":[ "6.x", "7.x" ]
+        },
+        {
+          "operatingsystem": "Ubuntu",
+          "operatingsystemrelease": [ "14.04" ]
+        },
+        {
+          "operatingsystem": "Debian",
+          "operatingsystemrelease": [ "8.x" ]
+        }
+      ],
+      "dependencies": [
+        { "name": "puppetlabs/stdlib", "version_requirement": "> 5.0" },
+      ]
+    }
+
+Now update your rspec code:
+
+    # spec/classes/devopspro-vilnius_spec.rb
+    require 'spec_helper'
+    describe 'devopspro-vilnius', :type => :class do
+      on_supported_os.each do |os, facts|
+        context "it should compile on #{os}" do
+          let(:facts) do
+            facts
+          end
+          it { should compile.with_all_deps }
+        end
+      end
+    end
+
 ## Beaker
 
 Install beaker
