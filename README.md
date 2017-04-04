@@ -91,11 +91,29 @@ Run rake -T with bundler
     bundle exec rake -T
     bundle exec rake spec
 
+## How to add required modules?
+
+Depending modules are added to .fixtures.yml file:
+
+    # .fixtures.yml
+    fixtures:
+      symlinks:
+        'devopspro-vilnius': "#{source_dir}"
+      repositories:
+        'stdlib':
+          repo: 'https://github.com/puppetlabs/puppetlabs-stdlib.git',
+          ref: '4.16'
+
 ## How to test on other OS?
 
-Install the puppet facts gem
+Install the puppet facts gem via bundler:
 
-    gem install rspec-puppet-facts
+    # Gemfile add the following line:
+    gem 'rspec-puppet-facts'
+
+Install gem using bundler:
+
+    bundle install --path vendor
 
 Attention: this one needs a metadata.json file!
 
