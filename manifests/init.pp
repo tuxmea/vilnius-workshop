@@ -5,5 +5,6 @@ package { 'less'
   file { '/etc/lessrc':
   ensure => present
   owner  => 'root',
+  source => 'puppet:///modules/devopspro-vilnius/lessrc.${::facts['os']['family']}',
   }
 }
