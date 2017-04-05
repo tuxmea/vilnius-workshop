@@ -1,0 +1,21 @@
+{
+  "name": "tuxmea/vilnius-devopspro",
+  "version": "1.0.0",
+  "author": "devopspro vilnius workshop",
+  "summary": "code for puppet testing workshop",
+  "license": "Apache-2.0",
+  "source": "https://github.com/tuxmea/devopspro-vilnius",
+  "project_page": "https://github.com/tuxmea/devopspro-vilnius",
+  "issues_url": "https://github.com/tuxmea/devopspro-vilnius/issues",
+  "tags": ["worksop", "devopspro", "vilnius", "puppet testing"],
+  "operatingsystem_support": [
+    {
+      "operatingsystem":"CentOS",
+      "operatingsystemrelease":[ "7.x" ]
+    },
+    {
+      "operatingsystem":"Ubuntu",
+      "operatingsystemrelease":[ "16.x" ]
+    }
+  ]
+}
