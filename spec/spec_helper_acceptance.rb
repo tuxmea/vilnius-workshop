@@ -1,5 +1,10 @@
 require 'beaker-rspec'
 
+hosts.each do |host|
+  # Install Puppet
+  install_puppet
+end
+
 RSpec.configure do |c|
   # Project root
   proj_root = File.expand_path(File.join(File.dirname(__FILE__), '..'))
@@ -13,6 +18,7 @@ RSpec.configure do |c|
     hosts.each do |host|
       # Install module
       copy_module_to(host, :source => proj_root, :module_name => 'devopspro_vilnius', :target_module_path => '/etc/puppetlabs/code/modules')
+      copy_module_to(host, :source => proj_root, :module_name => 'devopspro_vilnius', :target_module_path => '/etc/puppet/modules')
 
       # Install dependencies
       on host, puppet('module','install','puppetlabs-stdlib'), { :acceptable_exit_codes => [0,1] }
