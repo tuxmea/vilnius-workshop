@@ -11,11 +11,11 @@
   "operatingsystem_support": [
     {
       "operatingsystem":"CentOS",
-      "operatingsystemrelease":[ "7.x" ]
+      "operatingsystemrelease":[ "7" ]
     },
     {
       "operatingsystem":"Ubuntu",
-      "operatingsystemrelease":[ "16.x" ]
+      "operatingsystemrelease":[ "16" ]
     }
   ],
   "dependencies": []
