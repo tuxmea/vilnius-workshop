@@ -17,5 +17,6 @@
       "operatingsystem":"Ubuntu",
       "operatingsystemrelease":[ "16.x" ]
     }
-  ]
+  ],
+  "dependencies": []
 }
